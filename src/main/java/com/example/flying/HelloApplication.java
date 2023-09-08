@@ -26,9 +26,16 @@ public class HelloApplication extends Application {
 //            String idy = resultSet.getString("District");
 //            System.out.println("---"+ idy);
 //        }
-        statement.executeUpdate("CREATE TABLE IF NOT EXIST Books(id MEDIUMINT NOT NULL AUTO_INCREMENT, NAME CHAR(30) NOT NULL, PRIMARY_KEY(id) )");
-        statement.executeUpdate("insert into Books (name) values('Inferno')");
-        statement.executeUpdate("insert into Books set name='Solo'");
+//        String sql="CREATE TABLE books (" +
+//                "id INT AUTO_INCREMENT PRIMARY KEY," +
+//                "book_name VARCHAR(255) NOT NULL)";
+//        statement.executeUpdate(sql);
+//        System.out.println("Database has been created!");
+        String insSql="INSERT books (book_name) VALUES('Inferno')";
+        int rows= statement.executeUpdate(insSql);
+        System.out.println("get in"+"\n"+rows);
+        statement.close();
+        connection.close();
 
        // launch();
     }
